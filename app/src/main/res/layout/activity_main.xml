@@ -8,20 +8,20 @@
     tools:layout_editor_absoluteY="81dp">
 
 
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="203dp"
+    <EditText
+        android:id="@+id/binary"
+        android:layout_width="217dp"
         android:layout_height="0dp"
         android:layout_marginBottom="64dp"
         android:layout_marginTop="62dp"
-        android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/input"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/decimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/input"
+        android:id="@+id/decimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="89dp"

@@ -8,29 +8,27 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView output;
-    EditText input;
+    EditText binary;
+    EditText decimal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        output=(TextView) findViewById(R.id.output);
-        input=(EditText)findViewById(R.id.input);
+        binary=(EditText) findViewById(R.id.binary);
+        decimal=(EditText)findViewById(R.id.decimal);
     }
 
-
+    //Perform conversion
     public void convert(View v){
 
-        String value= input.getText().toString();
+        String value= decimal.getText().toString();
         int n=Integer.parseInt(value);
-
-        String binary;
-
-        binary=Integer.toBinaryString(n);
-
-        output.setText(binary);
+        String binaryString;
+        binaryString=Integer.toBinaryString(n);
+        binary.setText(binaryString);
     }
+    //====================================================================end of convert
 
 }
