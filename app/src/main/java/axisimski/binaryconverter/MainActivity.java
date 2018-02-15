@@ -23,11 +23,29 @@ public class MainActivity extends AppCompatActivity {
     //Perform conversion
     public void convert(View v){
 
-        String value= decimal.getText().toString();
-        int n=Integer.parseInt(value);
-        String binaryString;
-        binaryString=Integer.toBinaryString(n);
-        binary.setText(binaryString);
+        if(!decimal.getText().toString().isEmpty()){
+
+            String value= decimal.getText().toString();
+            int n=Integer.parseInt(value);
+            String binaryString;
+            binaryString=Integer.toBinaryString(n);
+            binary.setText(binaryString);
+            decimal.setText("");
+        }
+
+
+        else if(!binary.getText().toString().isEmpty()){
+
+            String value= binary.getText().toString();
+            int n=Integer.parseInt(value, 2);
+            String decimalString;
+            decimalString=Integer.toString(n);
+            decimal.setText(decimalString);
+            binary.setText("");
+        }
+
+
+
     }
     //====================================================================end of convert
 
