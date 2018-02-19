@@ -18,6 +18,7 @@
         android:text=""
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,12 +40,14 @@
 
     <Button
         android:id="@+id/toDecimal"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17dp"
         android:layout_marginStart="1dp"
-        android:onClick="convert"
+        android:onClick="toDecimal"
         android:text="to Decimal"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/toBinary"
         app:layout_constraintEnd_toStartOf="@+id/toBinary"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -52,10 +55,13 @@
 
     <Button
         android:id="@+id/toBinary"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="137dp"
+        android:onClick="toBinary"
         android:text="to Binary"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/toDecimal"
