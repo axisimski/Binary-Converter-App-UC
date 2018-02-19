@@ -6,47 +6,38 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText binary;
-    EditText decimal;
+   static EditText input;
+   static TextView output;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        binary=(EditText) findViewById(R.id.binary);
-        decimal=(EditText)findViewById(R.id.decimal);
+        input=(EditText) findViewById(R.id.input);
+        output=(TextView)findViewById(R.id.output);
     }
 
     //Perform conversion
-    public void convert(View v){
+    public void toBinary (View v){
 
-        if(!decimal.getText().toString().isEmpty()){
-
-            String value= decimal.getText().toString();
-            int n=Integer.parseInt(value);
-            String binaryString;
-            binaryString=Integer.toBinaryString(n);
-            binary.setText(binaryString);
-            decimal.setText("");
-        }
-
-
-        else if(!binary.getText().toString().isEmpty()){
-
-            String value= binary.getText().toString();
-            int n=Integer.parseInt(value, 2);
-            String decimalString;
-            decimalString=Integer.toString(n);
-            decimal.setText(decimalString);
-            binary.setText("");
-        }
-
-
+        ToBinary bin=new ToBinary();
+        bin.execute();
 
     }
-    //====================================================================end of convert
+    //====================================================================end of toBinary
+
+    public void toDecimal (View v){
+
+        ToDecimal dec=new ToDecimal();
+        dec.execute();
+
+    }
 
 }
+
+
