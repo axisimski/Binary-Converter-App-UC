@@ -26,6 +26,32 @@ public class ToDecimal {
             }
         }
 
+
+    }//==================================================================================
+
+    public static int getTwosComplement(String binaryInt) {
+
+        if (binaryInt.charAt(0) == '1') {
+
+            String invertedInt = invertDigits(binaryInt);
+            int decimalValue = Integer.parseInt(invertedInt, 2);
+
+            decimalValue = (decimalValue + 1) * -1;
+            return decimalValue;
+        } else {
+
+            return Integer.parseInt(binaryInt, 2);
+        }
     }
+
+    public static String invertDigits(String binaryInt) {
+        String result = binaryInt;
+        result = result.replace("0", " ");
+        result = result.replace("1", "0");
+        result = result.replace(" ", "1");
+        return result;
+    }
+
+
 
 }

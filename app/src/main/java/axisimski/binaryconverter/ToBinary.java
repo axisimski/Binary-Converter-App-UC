@@ -16,7 +16,7 @@ public class ToBinary {
             binaryString=Integer.toBinaryString(n);
             MainActivity.output.setText(binaryString);
             MainActivity.input.setText("");
-        } 
+        }
     }
 
 }

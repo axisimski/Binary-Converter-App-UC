@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="94dp"
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@+id/toBinary"
@@ -66,4 +66,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/toDecimal"
         app:layout_constraintTop_toBottomOf="@+id/input" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="464dp" >
+
+        <RadioButton
+            android:id="@+id/twosComplement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2's complement" />
+
+        <RadioButton
+            android:id="@+id/signeNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Signed Number" />
+    </RadioGroup>
 </android.support.constraint.ConstraintLayout>
