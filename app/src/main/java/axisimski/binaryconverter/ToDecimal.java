@@ -8,7 +8,49 @@ import static axisimski.binaryconverter.MainActivity.input;
 
 public class ToDecimal {
 
-    public void execute(){
+
+
+    public double ConvertToDecimal(String a){
+        double sum;
+        if(a.contains(".")){
+            String[] b=a.split("\\.");
+
+            int sum1=Integer.parseInt(b[0],2);
+
+
+            double sum2=latterPart(b[1]);
+
+            sum=sum1+sum2;
+
+        }else{
+            sum=Integer.parseInt(a,2);
+        }
+        return sum;
+    }
+    public  double latterPart(String number){
+        double sum=0;
+        int length=number.length();
+        for(int i=0;i<length;i++){
+            int e=-i-1;
+            char mult=number.charAt(i);
+            int num=Integer.parseInt(String.valueOf(mult));
+            double num1=num*Math.pow(2, e);
+            sum=sum+num1;;
+        }
+        return sum;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /*public void execute(){
         if(!input.getText().toString().isEmpty()){
 
             if(!input.getText().toString().matches("[01]+")){
@@ -50,7 +92,7 @@ public class ToDecimal {
         result = result.replace("1", "0");
         result = result.replace(" ", "1");
         return result;
-    }
+    }*/
 
 
 

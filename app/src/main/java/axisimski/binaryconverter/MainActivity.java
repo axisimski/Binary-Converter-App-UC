@@ -34,9 +34,17 @@ public class MainActivity extends AppCompatActivity {
     public void toDecimal (View v){
 
         ToDecimal dec=new ToDecimal();
-        dec.execute();
+      //  dec.execute();
+    Double decimalString= dec.ConvertToDecimal(input.getText().toString());
+
+   String dectoString=decimalString.toString();
+        MainActivity.output.setText(dectoString);
+
+
+
 
     }
+    //====================================================================end of toDecimal
 
 }
 
