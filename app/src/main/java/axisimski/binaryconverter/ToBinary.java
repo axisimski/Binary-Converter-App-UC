@@ -1,27 +1,29 @@
 package axisimski.binaryconverter;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * Created by Alex on 2/18/2018.
  */
 
 public class ToBinary {
 
-    public void execute(){
 
-     /*   if(!MainActivity.input.getText().toString().isEmpty()){
+        public String convert(double number) {
+            int n = 10;
+            BigDecimal bd = new BigDecimal(number);
+            BigDecimal mult = new BigDecimal(2).pow(n);
+            bd = bd.multiply(mult);
+            BigInteger bi = bd.toBigInteger();
+            StringBuilder str = new StringBuilder(bi.toString(2));
+            while (str.length() < n+1) {
+                str.insert(0, "0");
+            }
+            str.insert(str.length()-n, ".");
+            return str.toString();
+        }
 
-            String value= MainActivity.input.getText().toString();
-            int n=Integer.parseInt(value);
-            String binaryString;
-            binaryString=Integer.toBinaryString(n);
-            MainActivity.output.setText(binaryString);
-            MainActivity.input.setText("");
-        }*/
-
-
-
-
-    }
 
 }
 

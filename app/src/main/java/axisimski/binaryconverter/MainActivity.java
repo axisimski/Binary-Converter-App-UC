@@ -25,24 +25,38 @@ public class MainActivity extends AppCompatActivity {
     //Perform conversion
     public void toBinary (View v){
 
-        ToBinary bin=new ToBinary();
-        bin.execute();
+        if(input.getText().toString().isEmpty()) {
+
+            return;
+        }
+
+
+        else{
+                ToBinary bin=new ToBinary();
+                String binString = bin.convert(Double.parseDouble(input.getText().toString()));
+                MainActivity.output.setText(binString);
+        }
 
     }
     //====================================================================end of toBinary
 
     public void toDecimal (View v){
 
-        ToDecimal dec=new ToDecimal();
-      //  dec.execute();
-    Double decimalString= dec.ConvertToDecimal(input.getText().toString());
 
-   String dectoString=decimalString.toString();
-        MainActivity.output.setText(dectoString);
+        if(!input.getText().toString().isEmpty()){
 
+            if(!input.getText().toString().matches("[0.1-]+")){
 
+                input.setError("Must be a binary number!");
+            }
 
-
+            else{
+                ToDecimal dec=new ToDecimal();
+                Double decimalString= dec.ConvertToDecimal(input.getText().toString());
+                String dectoString=decimalString.toString();
+                MainActivity.output.setText(dectoString);
+            }
+        }
     }
     //====================================================================end of toDecimal
 
