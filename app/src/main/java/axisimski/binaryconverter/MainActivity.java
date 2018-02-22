@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
             else if(twosComplement.isChecked()){
 
-                MainActivity.output.setText("Under Construction");
+                ToBinary bin=new ToBinary();
+                String bs = bin.convert(Double.parseDouble(input.getText().toString()));
+                String ns=bin.toTwosComplement(bs);
+                MainActivity.output.setText(ns);
             }
 
             else{
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             else{
 
-                if(twosComplement.isChecked()){
+                if(signedNum.isChecked()){
                   ToDecimal dec=new ToDecimal();
                   Double decimalString= dec.ConvertToDecimal(input.getText().toString());
                   String dectoString=decimalString.toString();
