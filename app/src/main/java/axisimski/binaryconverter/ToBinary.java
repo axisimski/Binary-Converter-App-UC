@@ -24,35 +24,21 @@ public class ToBinary {
             return str.toString();
         }
 
-        public String toTwosComplement(StringBuffer  str){
 
-            int n = str.length();
+        public String toTwosComplement(String  bin){
 
-            // Traverse the string to get first '1' from
-            // the last of string
-            int i;
-            for (i = n-1 ; i >= 0 ; i--)
-                if (str.charAt(i) == '1')
-                    break;
+        String hello="FUC ";
 
-            // If there exists no '1' concat 1 at the
-            // starting of string
-            if (i == 0)
-                return "1" + str;
+        Character n=bin.charAt(0);
+        if(n=='-'){
+            
 
-            // Continue traversal after the position of
-            // first '1'
-            for (int k = i-1 ; k >= 0; k--)
-            {
-                //Just flip the values
-                if (str.charAt(k) == '1')
-                    str.replace(k, k+1, "0");
-                else
-                    str.replace(k, k+1, "1");
-            }
+            return hello;
+        }
 
-            // return the modified string
-            return str.toString();
+          String ret=  Character.toString(n);
+
+            return  ret;
         }
 
 
