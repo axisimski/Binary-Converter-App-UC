@@ -61,9 +61,31 @@ public class ToBinary {
 
             n = String.valueOf(myNameChars);
 
-
-
             return n;
+        }
+
+        public String splitString (String bin){
+
+            char[] myNameChars = bin.toCharArray();
+            char[] retArr=new  char[10];
+            boolean afterDot=false;
+
+            for(int i=0;i<bin.length();i++) {
+
+                if (myNameChars[i-1] == '.') {
+
+                    afterDot=true;
+
+                }
+
+                if (afterDot==true){
+
+                 }
+            }
+
+
+            return bin;
+
         }
 
 
