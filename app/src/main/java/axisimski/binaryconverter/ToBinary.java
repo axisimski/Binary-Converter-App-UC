@@ -25,6 +25,19 @@ public class ToBinary {
         }
 
 //=================================================================Flip
+
+        public String addOne(String bin){
+
+
+            int binInt = Integer.parseInt(bin, 2);
+            binInt++;
+            String ret=Integer.toBinaryString(binInt);
+
+
+
+            return ret;
+        }
+
         public String flip(String n){
 
             char[] myNameChars = n.toCharArray();
@@ -57,19 +70,20 @@ public class ToBinary {
         //=============================================================================Convert to twos complement
         public String toTwosComplement(String  bin){
 
+            String binFraction=bin;
+            binFraction=binFraction.replaceAll(".*.", "");
 
-            Character n=bin.charAt(0);
+            if(bin.charAt(0)!='-'){
 
-            if(n!='-'){
               bin = "0"+bin;
             }
 
-            else if(n=='-'){
+            else if(bin.charAt(0)=='-'){
 
-              bin = bin.replace("-","");
+                bin = bin.replace("-","");
 
-                bin = bin.substring(0, bin.indexOf('.'));
-
+                bin = bin.indexOf(".") < 0 ? bin : bin.replaceAll("0*$", "").replaceAll("\\.$", "");
+                bin="0"+bin;
 
                 int digits=bin.length();
 
@@ -78,16 +92,17 @@ public class ToBinary {
 
                   bin="0"+bin;
                   digits=bin.length();
-
-
               }
 
 
+              bin = flip(bin);
+              bin = addOne(bin);
 
 
-             bin= flip(bin);
 
-              return bin;
+
+
+
 
             }
 
