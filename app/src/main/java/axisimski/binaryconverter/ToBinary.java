@@ -25,9 +25,25 @@ public class ToBinary {
         }
 
 
+        public String flip(String n){
+
+            char[] myNameChars = n.toCharArray();
+
+            for(int i=0;i<n.length();i++){
+
+                if(n.charAt(i)=='0'){
+                     myNameChars[i]='1';
+                }
+            }
+
+            n = String.valueOf(myNameChars);
+
+
+            return n;
+        }
+
         public String toTwosComplement(String  bin){
 
-        String hello="FUC ";
 
         Character n=bin.charAt(0);
 
@@ -35,10 +51,13 @@ public class ToBinary {
 
             bin = "0"+bin;
         }
+
          else if(n=='-'){
 
+            bin = "00"+bin;
+          bin= flip(bin);
+            return bin;
 
-            return hello;
         }
 
 
