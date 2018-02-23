@@ -30,15 +30,19 @@ public class ToBinary {
         String hello="FUC ";
 
         Character n=bin.charAt(0);
-        if(n=='-'){
-            
+
+        if(n!='-'){
+
+            bin = "0"+bin;
+        }
+         else if(n=='-'){
+
 
             return hello;
         }
 
-          String ret=  Character.toString(n);
 
-            return  ret;
+            return  bin;
         }
 
 
