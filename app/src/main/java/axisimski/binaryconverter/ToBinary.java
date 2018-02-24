@@ -64,7 +64,7 @@ public class ToBinary {
             return n;
         }
 
-    //=============================================================================Split fractional part
+    //=============================================================================Split string to extract the fractional part
 
         public String splitString (String bin, int index){
 
@@ -90,8 +90,7 @@ public class ToBinary {
 
                 bin = bin.replace("-","");
 
-                bin = bin.indexOf(".") < 0 ? bin : bin.replaceAll("0*$", "").replaceAll("\\.$", "");
-
+                bin = splitString(bin, 0);
                 bin="0"+bin;
 
                 int digits=bin.length();
@@ -104,11 +103,17 @@ public class ToBinary {
               }
 
 
+                binFraction = flip(binFraction);
+                binFraction = addOne(binFraction);
               bin = flip(bin);
               bin = addOne(bin);
 
-            }
+              bin=bin+"."+binFraction;
 
+
+
+
+            }
 
 
             return  bin;
