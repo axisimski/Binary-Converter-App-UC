@@ -64,28 +64,14 @@ public class ToBinary {
             return n;
         }
 
-        public String splitString (String bin){
+    //=============================================================================Split fractional part
 
-            char[] myNameChars = bin.toCharArray();
-            char[] retArr=new  char[10];
-            boolean afterDot=false;
+        public String splitString (String bin, int index){
 
-            for(int i=0;i<bin.length();i++) {
-
-                if (myNameChars[i-1] == '.') {
-
-                    afterDot=true;
-
-                }
-
-                if (afterDot==true){
-
-                 }
-            }
-
+             String[] parts = bin.split("[.]");
+             bin = parts[index];
 
             return bin;
-
         }
 
 
@@ -93,7 +79,7 @@ public class ToBinary {
         public String toTwosComplement(String  bin){
 
             String binFraction=bin;
-            binFraction=binFraction.replaceAll(".*.", "");
+            binFraction= splitString(binFraction, 1);
 
             if(bin.charAt(0)!='-'){
 
@@ -105,6 +91,7 @@ public class ToBinary {
                 bin = bin.replace("-","");
 
                 bin = bin.indexOf(".") < 0 ? bin : bin.replaceAll("0*$", "").replaceAll("\\.$", "");
+
                 bin="0"+bin;
 
                 int digits=bin.length();
@@ -120,13 +107,8 @@ public class ToBinary {
               bin = flip(bin);
               bin = addOne(bin);
 
-
-
-
-
-
-
             }
+
 
 
             return  bin;
