@@ -12,11 +12,17 @@ public class ToBinary {
 
         public String convert(double number) {
             int n = 10;
+
             BigDecimal bd = new BigDecimal(number);
+
             BigDecimal mult = new BigDecimal(2).pow(n);
+
             bd = bd.multiply(mult);
+
             BigInteger bi = bd.toBigInteger();
+
             StringBuilder str = new StringBuilder(bi.toString(2));
+
             while (str.length() < n+1) {
                 str.insert(0, "0");
             }
@@ -75,7 +81,27 @@ public class ToBinary {
         }
 
 
+        public String convert(String bin){
+
+            String binFraction=bin;
+            binFraction= splitString(binFraction, 1);
+            bin = splitString(bin, 0);
+
+
+            if(Double.parseDouble(binFraction)==0){
+
+                return bin;
+
+            }
+
+            else return bin+"."+binFraction;
+
+
+        }
+
+
         //=============================================================================Convert to twos complement
+
         public String toTwosComplement(String  bin){
 
             String binFraction=bin;
@@ -102,17 +128,20 @@ public class ToBinary {
                   digits=bin.length();
               }
 
-
+                String fracVal=binFraction;
                 binFraction = flip(binFraction);
                 binFraction = addOne(binFraction);
-              bin = flip(bin);
-              bin = addOne(bin);
+                bin = flip(bin);
+
+                if(Double.parseDouble(fracVal)==0){
+
+                    bin = addOne(bin);
+                    return bin;
+
+                }
+
 
               bin=bin+"."+binFraction;
-
-
-
-
             }
 
 
