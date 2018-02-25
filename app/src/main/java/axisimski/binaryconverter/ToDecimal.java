@@ -87,34 +87,47 @@ public class ToDecimal {
     public String twosComplementToDec(String bin){
 
         ToBinary fs=new ToBinary();
-        boolean negative=false;
+
+        boolean negative=true;
 
         String binFraction=bin;
 
-        if(bin.charAt(0)=='1'){
+        if(bin.charAt(0)=='0'){
+            negative = false;
+            return bin;
 
-            negative = true;
         }
-      //  binFraction= fs.splitString(binFraction, 1);
+
         bin=fs.splitString(bin, 0);
 
+        if(Double.parseDouble(binFraction)!=0){
 
-     //   String fracVal=binFraction;
-    //    binFraction = fs.flip(binFraction);
-    //    binFraction = subOne(binFraction);
-        bin = subOne(bin);
-        bin = flip(bin);
+           binFraction= fs.splitString(binFraction, 1);
+           binFraction = subOne(binFraction);
+           binFraction = flip(binFraction);
+        }
 
-     //   if(Double.parseDouble(fracVal)==0){
 
-           // bin = subOne(bin);
-          //  return bin;
+       if(Double.parseDouble(binFraction)==0){
 
-      //  }
+           bin = subOne(bin);
+           bin = flip(bin);
+
+           if(negative==true){
+
+               bin="-"+bin;
+           }
+            return bin;
+
+        }
+
+    //    bin = subOne(bin);
+      //  bin = flip(bin);
+
 
         if(negative==true){
 
-            bin="-"+bin;
+            bin="-"+bin+"."+binFraction;
         }
 
 
