@@ -94,7 +94,7 @@ public class ToDecimal {
 
     public String splitString (String bin, int index){
 
-        String[] parts = bin.split("[.]");
+        String[] parts = bin.split("\\.");
         bin = parts[index];
 
         return bin;
@@ -107,6 +107,7 @@ public class ToDecimal {
 
         String binFraction=bin;
 
+
         if(bin.charAt(0)=='0'){
 
             return bin;
@@ -114,10 +115,23 @@ public class ToDecimal {
 
         else {
 
-         //   bin=splitString(bin, 0);
-          //  binFraction=splitString(bin, 1);
+            bin=splitString(bin, 0);
+
+            if(binFraction.contains(".")){
+               binFraction=splitString(binFraction, 1);
+               binFraction=subOne(binFraction);
+               binFraction=flip(binFraction);
+               bin=flip(bin);
+               return "-"+bin+"."+binFraction;
+            }
+
+
+            bin=subOne(bin);
+            bin=flip(bin);
 
         }
+
+        bin="-"+bin;
 
 
         return bin;
