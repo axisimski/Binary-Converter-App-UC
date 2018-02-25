@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
    static RadioButton twosComplement;
    static RadioButton signedNum;
 
+   static String makeSelection, mustBeBinary;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         output=(TextView)findViewById(R.id.output);
         twosComplement=(RadioButton)findViewById(R.id.twosComplement);
         signedNum=(RadioButton)findViewById(R.id.signeNum);
+
+        makeSelection=getResources().getString(R.string.makeSelection);
+        mustBeBinary=getResources().getString(R.string.mustBeBinary);
 
     }
 
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else{
-                MainActivity.output.setText("Select something");
+                MainActivity.output.setText(makeSelection);
 
             }
 
@@ -79,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(!input.getText().toString().matches("[0.1-]+")){
 
-                input.setError("Must be a binary number!");
+                input.setError(mustBeBinary);
             }
 
             else{
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 else{
-                    MainActivity.output.setText("Select something");
+                    MainActivity.output.setText(makeSelection);
 
                 }
             }
