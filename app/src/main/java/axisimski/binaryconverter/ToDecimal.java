@@ -12,6 +12,10 @@ public class ToDecimal {
 
     public double ConvertToDecimal(String a){
         double sum;
+
+        if(a.charAt(0)=='.'){
+            a="0"+a;
+        }
         if(a.contains(".")){
             String[] b=a.split("\\.");
 
@@ -20,7 +24,12 @@ public class ToDecimal {
 
             double sum2=latterPart(b[1]);
 
-            sum=sum1+sum2;
+            if(a.charAt(0)=='-'){
+                sum =sum1-sum2;
+            }
+
+            else
+                sum=sum1+sum2;
 
         }else{
             sum=Integer.parseInt(a,2);
@@ -83,55 +92,46 @@ public class ToDecimal {
     }
 
 
+    public String splitString (String bin, int index){
+
+        String[] parts = bin.split("[.]");
+        bin = parts[index];
+
+        return bin;
+    }
+
+
 
     public String twosComplementToDec(String bin){
 
-        ToBinary fs=new ToBinary();
-
-        boolean negative=true;
 
         String binFraction=bin;
 
         if(bin.charAt(0)=='0'){
-            negative = false;
+
             return bin;
-
         }
 
-        bin=fs.splitString(bin, 0);
+        else {
 
-        if(Double.parseDouble(binFraction)!=0){
+         //   bin=splitString(bin, 0);
+          //  binFraction=splitString(bin, 1);
 
-           binFraction= fs.splitString(binFraction, 1);
-           binFraction = subOne(binFraction);
-           binFraction = flip(binFraction);
-        }
-
-
-       if(Double.parseDouble(binFraction)==0){
-
-           bin = subOne(bin);
-           bin = flip(bin);
-
-           if(negative==true){
-
-               bin="-"+bin;
-           }
-            return bin;
-
-        }
-
-    //    bin = subOne(bin);
-      //  bin = flip(bin);
-
-
-        if(negative==true){
-
-            bin="-"+bin+"."+binFraction;
         }
 
 
         return bin;
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }
