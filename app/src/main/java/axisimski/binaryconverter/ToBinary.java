@@ -109,7 +109,7 @@ public class ToBinary {
 
             if(bin.charAt(0)!='-'){
 
-              bin = "0"+bin;
+                bin = "0"+bin;
             }
 
             else if(bin.charAt(0)=='-'){

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Дополнительный код калькулятор</string>
+    <string name="twosComp">"Дополнительный код "</string>
+    <string name="toBinary">" Двоичный номер "</string>
+    <string name="toDecimal">" Десятичное число  "</string>
+    <string name="signedNum">"Знаковых чисел "</string>
+    <string name="mustBeBinary">Должно быть двоичное число</string>
+    <string name="makeSelection">Сделать выбор</string>
+</resources>

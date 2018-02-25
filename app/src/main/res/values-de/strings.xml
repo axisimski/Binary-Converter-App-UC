@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zweierkomplement Umrechner</string>
+    <string name="toDecimal">" Dezimal "</string>
+    <string name="toBinary">" Binär"</string>
+    <string name="twosComp">Zweierkomplement</string>
+    <string name="signedNum">Betrags-Vorzeichen</string>
+    <string name="mustBeBinary">Geben Sie eine Binärzahl ein!</string>
+    <string name="makeSelection">"Eine Auswahl treffen! "</string>
+</resources>

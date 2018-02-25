@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">" Calculadora Binaria "</string>
+    <string name="toBinary">Número binario</string>
+    <string name="toDecimal">" Número decimal "</string>
+    <string name="twosComp">" Complemento a dos "</string>
+    <string name="signedNum">Número con signo</string>
+    <string name="mustBeBinary">Debe ser un número binario</string>
+    <string name="makeSelection">"Has una elección "</string>
+</resources>
