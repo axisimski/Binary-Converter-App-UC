@@ -41,13 +41,21 @@ public class ToDecimal {
         }
         return sum;
     }
- 
 
 
-    public String twosComplementToDec(String a){
+
+    public String twosComplementToDec(String bin){
+
+        ToBinary fs=new ToBinary();
+
+        String binFraction=bin;
+        binFraction= fs.splitString(binFraction, 1);
+        bin=fs.splitString(bin, 0);
 
 
-        return a;
+
+
+        return bin;
     }
 
 }
