@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Two\'s Complement Converter</string>
+    <string name="toBinary">To Binary</string>
+    <string name="toDecimal">To Decimal</string>
+    <string name="twosComp">Two\'s complement</string>
+    <string name="signedNum">Signed Number</string>
+    <string name="convType">Make a selection</string>
+
+
+
+
+
 </resources>

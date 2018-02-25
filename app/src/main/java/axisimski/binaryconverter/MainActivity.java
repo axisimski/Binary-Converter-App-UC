@@ -68,14 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
         }
 
     }
     //====================================================================end of toBinary
 
     public void toDecimal (View v){
-
 
         if(!input.getText().toString().isEmpty()){
 

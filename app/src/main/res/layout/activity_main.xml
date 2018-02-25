@@ -46,7 +46,7 @@
         android:layout_marginEnd="17dp"
         android:layout_marginStart="1dp"
         android:onClick="toDecimal"
-        android:text="to Decimal"
+        android:text="@string/toDecimal"
         android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/toBinary"
         app:layout_constraintEnd_toStartOf="@+id/toBinary"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="34dp"
         android:onClick="toBinary"
-        android:text="to Binary"
+        android:text="@string/toBinary"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:buttonTint="@color/white"
-            android:text="2's complement"
+            android:text="@string/twosComp"
             android:textColor="@android:color/background_light" />
 
         <RadioButton
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:buttonTint="@color/white"
-            android:text="Signed Number"
+            android:text="@string/signedNum"
             android:textColor="@android:color/background_light" />
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>
