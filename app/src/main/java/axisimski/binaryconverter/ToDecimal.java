@@ -43,16 +43,79 @@ public class ToDecimal {
     }
 
 
+    public String subOne(String bin){
+
+
+        int binInt = Integer.parseInt(bin, 2);
+        binInt--;
+        String ret=Integer.toBinaryString(binInt);
+
+
+
+        return ret;
+    }
+
+
+    public String flip(String n){
+
+        char[] myNameChars = n.toCharArray();
+
+        for(int i=0;i<n.length();i++){
+
+            if(n.charAt(i)=='.'){
+
+                break;
+            }
+
+            if(n.charAt(i)=='0'){
+                myNameChars[i]='1';
+            }
+
+            if(n.charAt(i)=='1'){
+                myNameChars[i]='0';
+            }
+
+        }
+
+        n = String.valueOf(myNameChars);
+
+        return n;
+    }
+
+
 
     public String twosComplementToDec(String bin){
 
         ToBinary fs=new ToBinary();
+        boolean negative=false;
 
         String binFraction=bin;
-        binFraction= fs.splitString(binFraction, 1);
+
+        if(bin.charAt(0)=='1'){
+
+            negative = true;
+        }
+      //  binFraction= fs.splitString(binFraction, 1);
         bin=fs.splitString(bin, 0);
 
 
+     //   String fracVal=binFraction;
+    //    binFraction = fs.flip(binFraction);
+    //    binFraction = subOne(binFraction);
+        bin = subOne(bin);
+        bin = flip(bin);
+
+     //   if(Double.parseDouble(fracVal)==0){
+
+           // bin = subOne(bin);
+          //  return bin;
+
+      //  }
+
+        if(negative==true){
+
+            bin="-"+bin;
+        }
 
 
         return bin;
