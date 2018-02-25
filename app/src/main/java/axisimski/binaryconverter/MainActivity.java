@@ -39,17 +39,28 @@ public class MainActivity extends AppCompatActivity {
         else{
 
             if(signedNum.isChecked()){
+
                 ToBinary bin=new ToBinary();
                 String binString = bin.convert(Double.parseDouble(input.getText().toString()));
+                binString=bin.convert(binString);
                 MainActivity.output.setText(binString);
             }
 
             else if(twosComplement.isChecked()){
 
-                ToBinary bin=new ToBinary();
-                String bs = bin.convert(Double.parseDouble(input.getText().toString()));
-                String ns=bin.toTwosComplement(bs);
-                MainActivity.output.setText(ns);
+                //Works the first time, but app will crash if the user keeps trying to enter out of bounds input!!!
+                if(Double.parseDouble(input.getText().toString())>99999999.999||
+                        Double.parseDouble(input.getText().toString())<-99999999.999){
+                    input.setError("-100,000,000< N < 100,000,000");
+                 }
+
+                else  {
+
+                    ToBinary bin = new ToBinary();
+                    String bs = bin.convert(Double.parseDouble(input.getText().toString()));
+                    String ns = bin.toTwosComplement(bs);
+                    MainActivity.output.setText(ns);
+                }
             }
 
             else{
@@ -84,7 +95,15 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(twosComplement.isChecked()){
 
-                    MainActivity.output.setText("Under Construction");
+
+                    ToDecimal dec = new ToDecimal();
+                    String ns = dec.twosComplementToDec(input.getText().toString());
+                    Double decimalDouble= dec.ConvertToDecimal(ns);
+                    String ds=Double.toString(decimalDouble);
+
+
+
+                    MainActivity.output.setText(ds);
                 }
 
                 else{
