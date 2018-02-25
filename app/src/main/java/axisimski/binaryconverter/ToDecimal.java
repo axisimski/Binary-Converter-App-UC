@@ -27,6 +27,8 @@ public class ToDecimal {
         }
         return sum;
     }
+
+
     public  double latterPart(String number){
         double sum=0;
         int length=number.length();
@@ -38,6 +40,14 @@ public class ToDecimal {
             sum=sum+num1;;
         }
         return sum;
+    }
+ 
+
+
+    public String twosComplementToDec(String a){
+
+
+        return a;
     }
 
 }
