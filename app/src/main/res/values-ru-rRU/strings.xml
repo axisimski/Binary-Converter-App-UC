@@ -7,4 +7,5 @@
     <string name="signedNum">"Знаковых чисел "</string>
     <string name="mustBeBinary">Должно быть двоичное число</string>
     <string name="makeSelection">Сделать выбор</string>
+    <string name="notvalid">"Неправильный номер "</string>
 </resources>

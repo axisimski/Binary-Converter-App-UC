@@ -7,4 +7,5 @@
     <string name="signedNum">Betrags-Vorzeichen</string>
     <string name="mustBeBinary">Geben Sie eine Binärzahl ein!</string>
     <string name="makeSelection">"Eine Auswahl treffen! "</string>
+    <string name="notvalid">"Ungültige Nummer "</string>
 </resources>
