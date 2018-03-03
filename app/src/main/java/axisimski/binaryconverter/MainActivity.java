@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
    static RadioButton twosComplement;
    static RadioButton signedNum;
 
-   static String makeSelection, mustBeBinary;
+   static String makeSelection, mustBeBinary, invalidNumber;
 
 
     @Override
@@ -29,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         twosComplement=(RadioButton)findViewById(R.id.twosComplement);
         signedNum=(RadioButton)findViewById(R.id.signeNum);
 
-        makeSelection=getResources().getString(R.string.makeSelection);
-        mustBeBinary=getResources().getString(R.string.mustBeBinary);
+        makeSelection = getResources().getString(R.string.makeSelection);
+        mustBeBinary = getResources().getString(R.string.mustBeBinary);
+        invalidNumber = getResources().getString(R.string.notvalid);
+
 
     }
 
@@ -53,11 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
             else if(twosComplement.isChecked()){
 
-                //Works the first time, but app will crash if the user keeps trying to enter out of bounds input!!!
+                //Limited input due to app crashing
                 if(Double.parseDouble(input.getText().toString())>99999999.999||
                         Double.parseDouble(input.getText().toString())<-99999999.999){
-                    input.setError("-100,000,000< N < 100,000,000");
+
+                    Toast.makeText(this,"-100,000,000< N < 100,000,000",Toast.LENGTH_SHORT).show();
                  }
+
 
                 else  {
 
@@ -69,9 +74,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else{
-                MainActivity.output.setText(makeSelection);
 
-            }
+                Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();            }
 
         }
 
@@ -84,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
             if(!input.getText().toString().matches("[0.1-]+")){
 
-                input.setError(mustBeBinary);
+                Toast.makeText(this,mustBeBinary,Toast.LENGTH_SHORT).show();
+
             }
 
             else{
@@ -98,20 +103,22 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(twosComplement.isChecked()){
 
+                    if(input.getText().toString().contains("-")){
+                        Toast.makeText(this,invalidNumber,Toast.LENGTH_SHORT).show();
+                    }
 
-                    ToDecimal dec = new ToDecimal();
-                    String ns = dec.twosComplementToDec(input.getText().toString());
-                    Double decimalDouble= dec.ConvertToDecimal(ns);
-                    String ds=Double.toString(decimalDouble);
+                    else{
 
-
-
-                    MainActivity.output.setText(ds);
+                         ToDecimal dec = new ToDecimal();
+                         String ns = dec.twosComplementToDec(input.getText().toString());
+                         Double decimalDouble= dec.ConvertToDecimal(ns);
+                         String ds=Double.toString(decimalDouble);
+                         MainActivity.output.setText(ds);
+                    }
                 }
 
                 else{
-                    MainActivity.output.setText(makeSelection);
-
+                    Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
                 }
             }
         }
