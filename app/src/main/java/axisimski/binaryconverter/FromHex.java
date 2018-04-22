@@ -39,7 +39,7 @@ public class FromHex {
 
     public String addZeros(String fs){
 
-        while(fs.length()!=8){
+        while(fs.length()%4!=0){
             fs="0"+fs;
         }
 
