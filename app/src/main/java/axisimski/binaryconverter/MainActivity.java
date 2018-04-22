@@ -131,6 +131,12 @@ public class MainActivity extends AppCompatActivity {
                          String ns = dec.twosComplementToDec(input.getText().toString());
                          Double decimalDouble= dec.ConvertToDecimal(ns);
                          String ds=Double.toString(decimalDouble);
+
+                        Double x=Double.parseDouble(ds);
+                        ToHex tohex=new ToHex();
+                        String hexString= tohex.convert(x.toString());
+                        ds="Dec: "+ds.toString()+"\n\nBin: "+input.getText().toString()+"\n\nHex: "+hexString;
+
                          MainActivity.output.setText(ds);
                     }
                 }
