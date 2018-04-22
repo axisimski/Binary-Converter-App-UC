@@ -51,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
                 ToBinary bin=new ToBinary();
                 String binString = bin.convert(Double.parseDouble(input.getText().toString()));
                 binString=bin.convert(binString);
+                //===============================================================================================
+                Double x=Double.parseDouble(input.getText().toString());
+                ToHex tohex=new ToHex();
+                String hexString=Double.toHexString(x);
+
+                 binString=binString+"\n\nHex:"+hexString;
+
                 MainActivity.output.setText(binString);
             }
 
