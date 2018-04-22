@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Double x=Double.parseDouble(input.getText().toString());
                 ToHex tohex=new ToHex();
                 String hexString= tohex.convert(x.toString());
-
-                 binString=binString+"\n\nHex:"+hexString;
+                binString="Dec: "+input.getText().toString()+"\n\nBin: "+binString+"\n\nHex: "+hexString;
 
                 MainActivity.output.setText(binString);
             }
@@ -76,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
                     ToBinary bin = new ToBinary();
                     String bs = bin.convert(Double.parseDouble(input.getText().toString()));
                     String ns = bin.toTwosComplement(bs);
+
+                    Double x=Double.parseDouble(input.getText().toString());
+                    ToHex tohex=new ToHex();
+                    String hexString= tohex.convert(x.toString());
+                    ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
+
                     MainActivity.output.setText(ns);
                 }
             }
@@ -105,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
                   ToDecimal dec=new ToDecimal();
                   Double decimalString= dec.ConvertToDecimal(input.getText().toString());
                   String dectoString=decimalString.toString();
+
+                  Double x=Double.parseDouble(dectoString);
+                  ToHex tohex=new ToHex();
+                  String hexString= tohex.convert(x.toString());
+                  dectoString="Dec: "+dectoString.toString()+"\n\nBin: "+input.getText().toString()+"\n\nHex: "+hexString;
+
                   MainActivity.output.setText(dectoString);
                 }
 

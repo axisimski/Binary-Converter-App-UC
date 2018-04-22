@@ -42,8 +42,4 @@ public class ToHex {
         return hexOut.toString();
     }
 
-
-
-
-
 }
