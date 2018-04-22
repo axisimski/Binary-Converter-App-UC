@@ -17,16 +17,25 @@ public class ToHex {
     //============================================================================
     public String convertParts(String num ){
 
+        String whole=splitString(num,0);
+        String fraction=splitString(num,1);
 
-        return "HHH";
+        Integer p1=Integer.parseInt(whole);
+        Integer p2=Integer.parseInt(fraction);
+
+        whole=Integer.toHexString(p1);
+        fraction=Integer.toHexString(p2);
+
+        String hexString="\nHex: "+whole+fraction;
+
+
+        return hexString;
     }
 
     //=================================================================
     public String convert(String num){
 
-
-
-        return "JJJ";
+        return convertParts(num);
     }
 
 
