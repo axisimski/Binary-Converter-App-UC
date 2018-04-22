@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 ToHex tohex=new ToHex();
                 String hexString=Double.toHexString(x);
 
-                 binString=binString+"\n\nHex:"+hexString;
+                binString=binString+"\n\nHex:"+hexString;
 
                 MainActivity.output.setText(binString);
             }
