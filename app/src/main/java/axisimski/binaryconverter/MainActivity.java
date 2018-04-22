@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 String binString = bin.convert(Double.parseDouble(input.getText().toString()));
                 binString=bin.convert(binString);
                 //===============================================================================================
-                Integer x=Integer.parseInt(input.getText().toString());
+                Double x=Double.parseDouble(input.getText().toString());
                 ToHex tohex=new ToHex();
-                String hexString=Integer.toHexString(x);
+                String hexString= tohex.convert(x.toString());
 
                  binString=binString+"\n\nHex:"+hexString;
 
-                MainActivity.output.setText(hexString);
+                MainActivity.output.setText(binString);
             }
 
             else if(twosComplement.isChecked()){

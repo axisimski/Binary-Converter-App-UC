@@ -23,10 +23,10 @@ public class ToHex {
         Integer p1=Integer.parseInt(whole);
         Integer p2=Integer.parseInt(fraction);
 
-        whole=Integer.toHexString(p1);
-        fraction=Integer.toHexString(p2);
+        String W=Integer.toHexString(p1);
+        String F=Integer.toHexString(p2);
 
-        String hexString="\nHex: "+whole+fraction;
+        String hexString="\nHex: "+W+"."+F;
 
 
         return hexString;
