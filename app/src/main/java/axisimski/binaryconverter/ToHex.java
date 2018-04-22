@@ -5,37 +5,41 @@ import java.math.BigInteger;
 
 public class ToHex {
 
+    public String convert(String decInpString){
 
-    public String splitString (String num, int index){
+        StringBuilder hexOut = new StringBuilder();
+        double doubleOfDecInp = Double.parseDouble(decInpString);
 
-        String[] parts = num.split("[.]");
-        num = parts[index];
+        if(doubleOfDecInp < 0){
 
-        return num;
-    }
+            hexOut = hexOut.append("-");
+            doubleOfDecInp = -doubleOfDecInp;
+        }
 
-    //============================================================================
-    public String convertParts(String num ){
+        BigInteger beforedot = new BigDecimal(doubleOfDecInp).toBigInteger();
+        hexOut.append(beforedot.toString(16));
 
-        String whole=splitString(num,0);
-        String fraction=splitString(num,1);
+        BigDecimal bfd =new BigDecimal(beforedot);
+        doubleOfDecInp = doubleOfDecInp - bfd.doubleValue();
 
-        Integer p1=Integer.parseInt(whole);
-        Integer p2=Integer.parseInt(fraction);
+        if(doubleOfDecInp == 0){
+            return hexOut.toString();
+        }
+        hexOut.append(".");
 
-        String W=Integer.toHexString(p1);
-        String F=Integer.toHexString(p2);
+        for (int i = 0; i < 16; ++i) {
+            doubleOfDecInp = doubleOfDecInp * 16;
+            int digit = (int)doubleOfDecInp;
 
-        String hexString="\nHex: "+W+"."+F;
+            hexOut.append(Integer.toHexString(digit));
 
+            doubleOfDecInp = doubleOfDecInp - digit;
 
-        return hexString;
-    }
+            if (doubleOfDecInp == 0)
+                break;
+        }
 
-    //=================================================================
-    public String convert(String num){
-
-        return convertParts(num);
+        return hexOut.toString();
     }
 
 
