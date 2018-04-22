@@ -149,6 +149,69 @@ public class MainActivity extends AppCompatActivity {
     }
     //====================================================================end of toDecimal
 
+
+    public void fromHex(View v){
+
+        if(input.getText().toString().isEmpty()) {
+
+            return;
+        }
+        else{
+
+            if(signedNum.isChecked()){
+
+                FromHex FH= new FromHex();
+
+                String bin=FH.convert(input.getText().toString());
+
+                ToDecimal bin2dec=new ToDecimal();
+                Double dec=bin2dec.ConvertToDecimal(bin);
+                //===============================================================================================
+
+                String  outString="Dec: "+dec.toString()+"\n\nBin: "+bin+"\n\nHex: "+input.getText().toString();
+
+                MainActivity.output.setText(outString);
+            }
+
+            //hex to dec and signed bin
+
+
+
+            else if(twosComplement.isChecked()){
+
+                //Limited input due to app crashing
+                if(Double.parseDouble(input.getText().toString())>99999999.999||
+                        Double.parseDouble(input.getText().toString())<-99999999.999){
+
+                    Toast.makeText(this,"-100,000,000< N < 100,000,000",Toast.LENGTH_SHORT).show();
+                }
+
+
+                else  {
+
+                    ToBinary bin = new ToBinary();
+                    String bs = bin.convert(Double.parseDouble(input.getText().toString()));
+                    String ns = bin.toTwosComplement(bs);
+
+                    Double x=Double.parseDouble(input.getText().toString());
+                    ToHex tohex=new ToHex();
+                    String hexString= tohex.convert(x.toString());
+                    ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
+
+                    MainActivity.output.setText(ns);
+                }
+            }
+
+            else{
+
+                Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();            }
+
+        }
+
+
+
+    }
+
 }
 
 
