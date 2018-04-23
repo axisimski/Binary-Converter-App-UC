@@ -73,12 +73,19 @@ public class MainActivity extends AppCompatActivity {
                 else  {
 
                     ToBinary bin = new ToBinary();
+                    ToDecimal TD= new ToDecimal();
+
                     String bs = bin.convert(Double.parseDouble(input.getText().toString()));
+
+                    String tmpTwoBin=bin.toTwosComplement(bs);
+
+                    Double DecToHex=TD.ConvertToDecimal(tmpTwoBin);
+
                     String ns = bin.toTwosComplement(bs);
 
                     Double x=Double.parseDouble(input.getText().toString());
                     ToHex tohex=new ToHex();
-                    String hexString= tohex.convert(x.toString());
+                    String hexString= tohex.convert(DecToHex.toString());
                     ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
 
                     MainActivity.output.setText(ns);
@@ -164,8 +171,6 @@ public class MainActivity extends AppCompatActivity {
 
                 String bin=FH.convert(input.getText().toString());
 
-    //!!!            //MUST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DO ERROR CHECKING MAX 8!!!!!!!!!!!!!!
-
                 ToDecimal bin2dec=new ToDecimal();
                 Double dec=bin2dec.ConvertToDecimal(bin);
                 //===============================================================================================
@@ -173,9 +178,8 @@ public class MainActivity extends AppCompatActivity {
                 String  outString="Dec: "+dec.toString()+"\n\nBin: "+bin+"\n\nHex: "+input.getText().toString();
 
                 MainActivity.output.setText(outString);
-            }
 
-            //hex to dec and signed bin
+            } //hex to dec and signed bin
 
 
 
