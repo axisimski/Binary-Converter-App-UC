@@ -130,7 +130,15 @@ public class ToBinary {
 
                 String fracVal=binFraction;
                 binFraction = flip(binFraction);
+
+                int numLeadingZeros = binFraction.length() - binFraction.replaceAll("^0+", "").length();
+
                 binFraction = addOne(binFraction);
+
+                for(int i=1;i<numLeadingZeros;i++){
+                    binFraction="0"+binFraction;
+                }
+
                 bin = flip(bin);
 
                 if(Double.parseDouble(fracVal)==0){

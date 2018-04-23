@@ -79,16 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
                     String tmpTwoBin=bin.toTwosComplement(bs);
 
-                    Double DecToHex=TD.ConvertToDecimal(tmpTwoBin);
+                   // Double DecToHex=TD.ConvertToDecimal(tmpTwoBin);
 
-                    String ns = bin.toTwosComplement(bs);
+                  //  String ns = bin.toTwosComplement(bs);
 
-                    Double x=Double.parseDouble(input.getText().toString());
-                    ToHex tohex=new ToHex();
-                    String hexString= tohex.convert(DecToHex.toString());
-                    ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
+                  //  Double x=Double.parseDouble(input.getText().toString());
+                  //  ToHex tohex=new ToHex();
+                  //  String hexString= tohex.convert(DecToHex.toString());
+                   // ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
 
-                    MainActivity.output.setText(ns);
+                    MainActivity.output.setText(tmpTwoBin);
                 }
             }
 
@@ -186,26 +186,27 @@ public class MainActivity extends AppCompatActivity {
             else if(twosComplement.isChecked()){
 
                 //Limited input due to app crashing
-                if(Double.parseDouble(input.getText().toString())>99999999.999||
-                        Double.parseDouble(input.getText().toString())<-99999999.999){
-
-                    Toast.makeText(this,"-100,000,000< N < 100,000,000",Toast.LENGTH_SHORT).show();
-                }
 
 
-                else  {
+
+                if(1==1)  {
 
                     FromHex FH= new FromHex();
                     ToBinary TB=new ToBinary();
 
                     String bin=FH.convert(input.getText().toString());
 
-                    ToDecimal bin2dec=new ToDecimal();
-                    Double dec=bin2dec.ConvertToDecimal(bin);
-                    String TC=TB.toTwosComplement(bin);
+                    ToDecimal dec = new ToDecimal();
+                    String ns = dec.twosComplementToDec(bin);
+                    Double decimalDouble= dec.ConvertToDecimal(ns);
+                    String ds=Double.toString(decimalDouble);
+
+                   // ToDecimal bin2dec=new ToDecimal();
+                   // String dec=bin2dec.twosComplementToDec(bin);
+                   // String TC=TB.toTwosComplement(bin);
                     //===============================================================================================
 
-                    String  outString="Dec: "+dec.toString()+"\n\nBin: "+TC+"\n\nHex: "+input.getText().toString();
+                    String  outString="Dec: "+ds+"\n\nBin: "+bin+"\n\nHex: "+input.getText().toString();
 
                     MainActivity.output.setText(outString);
                 }

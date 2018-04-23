@@ -61,7 +61,7 @@
             android:background="@drawable/custom"
             android:ems="10"
             android:hint="Enter Input Here"
-            android:inputType="numberSigned|numberDecimal"
+            android:inputType="textPersonName"
             android:maxLength="20"
             android:textAlignment="center"
             android:textColor="@android:color/black"
