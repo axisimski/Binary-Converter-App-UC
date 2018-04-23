@@ -196,8 +196,6 @@ public class MainActivity extends AppCompatActivity {
 
                     String bin=FH.convert(input.getText().toString());
 
-                    //!!!            //MUST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DO ERROR CHECKING MAX 8!!!!!!!!!!!!!!
-
                     ToDecimal bin2dec=new ToDecimal();
                     Double dec=bin2dec.ConvertToDecimal(bin);
                     String TC=TB.toTwosComplement(bin);
@@ -217,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
+    }//end of from hex
 
 }
 

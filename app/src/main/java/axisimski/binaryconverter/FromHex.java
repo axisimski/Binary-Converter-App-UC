@@ -7,6 +7,12 @@ public class FromHex {
 
     public String convert(String hex){
 
+        Boolean negative=false;
+        if(hex.charAt(0)=='-'){
+            negative=true;
+           hex= hex.substring(1);
+        }
+
         String whole=splitString(hex, 0);
         String fraction=splitString(hex, 1);
 
@@ -19,6 +25,9 @@ public class FromHex {
 
         fs=addZeros(fs);
 
+        if(negative==true){
+            ws="-"+ws;
+        }
 
         return ws+"."+fs;
 
