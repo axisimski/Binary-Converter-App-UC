@@ -164,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
 
                 String bin=FH.convert(input.getText().toString());
 
+    //!!!            //MUST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DO ERROR CHECKING MAX 8!!!!!!!!!!!!!!
+
                 ToDecimal bin2dec=new ToDecimal();
                 Double dec=bin2dec.ConvertToDecimal(bin);
                 //===============================================================================================
@@ -189,16 +191,21 @@ public class MainActivity extends AppCompatActivity {
 
                 else  {
 
-                    ToBinary bin = new ToBinary();
-                    String bs = bin.convert(Double.parseDouble(input.getText().toString()));
-                    String ns = bin.toTwosComplement(bs);
+                    FromHex FH= new FromHex();
+                    ToBinary TB=new ToBinary();
 
-                    Double x=Double.parseDouble(input.getText().toString());
-                    ToHex tohex=new ToHex();
-                    String hexString= tohex.convert(x.toString());
-                    ns="Dec: "+input.getText().toString()+"\n\nBin: "+ns+"\n\nHex: "+hexString;
+                    String bin=FH.convert(input.getText().toString());
 
-                    MainActivity.output.setText(ns);
+                    //!!!            //MUST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DO ERROR CHECKING MAX 8!!!!!!!!!!!!!!
+
+                    ToDecimal bin2dec=new ToDecimal();
+                    Double dec=bin2dec.ConvertToDecimal(bin);
+                    String TC=TB.toTwosComplement(bin);
+                    //===============================================================================================
+
+                    String  outString="Dec: "+dec.toString()+"\n\nBin: "+TC+"\n\nHex: "+input.getText().toString();
+
+                    MainActivity.output.setText(outString);
                 }
             }
 

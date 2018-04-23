@@ -22,8 +22,9 @@ public class FromHex {
 
         return ws+"."+fs;
 
-    }
+    }//end Convert
 
+    //---------------------------------------------------------------------
 
     public String splitString (String bin, int index){
 
@@ -32,11 +33,16 @@ public class FromHex {
         if(index>=parts.length){
             return "0";
         }
+
+        if(parts[index].isEmpty()){
+            return "0";
+        }
         bin = parts[index];
 
         return bin;
-    }
+    } //end SplitString
 
+    //---------------------------------------------------------------------
     public String addZeros(String fs){
 
         while(fs.length()%4!=0){
@@ -45,8 +51,7 @@ public class FromHex {
 
         return fs;
 
-
-    }
+    } //end AddZeros
 
 
 
