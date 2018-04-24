@@ -6,8 +6,8 @@ android {
         applicationId "axisimski.binaryconverter"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 2
-        versionName "1.1"
+        versionCode 4
+        versionName "1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
