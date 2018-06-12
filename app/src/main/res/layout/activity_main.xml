@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bcg"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
@@ -13,7 +14,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginBottom="38dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="25dp"
@@ -58,9 +59,9 @@
     <RadioGroup
         android:id="@+id/radioGroup3"
         android:layout_width="wrap_content"
-        android:layout_height="68dp"
-        android:layout_marginBottom="62dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="63dp"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
@@ -91,8 +92,8 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="0dp"
-        android:layout_height="103dp"
-        android:layout_marginBottom="25dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="38dp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,5 +157,6 @@
         ads:adUnitId="ca-app-pub-8271447368800027/5164496345"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/radioGroup3"></com.google.android.gms.ads.AdView>
 </android.support.constraint.ConstraintLayout>
