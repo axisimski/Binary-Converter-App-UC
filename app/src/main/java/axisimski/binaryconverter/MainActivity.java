@@ -7,17 +7,20 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
-import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity {
 
-   static EditText input;
-   static TextView output;
-   static RadioButton twosComplement;
-   static RadioButton signedNum;
-
-   static String makeSelection, mustBeBinary, invalidNumber;
+    static EditText input;
+    static TextView output;
+    static RadioButton twosComplement;
+    static RadioButton signedNum;
+    private AdView mAdView;
+    static String makeSelection, mustBeBinary, invalidNumber, inputTooLarge;
 
 
     @Override
@@ -25,106 +28,90 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        input=(EditText) findViewById(R.id.input);
-        output=(TextView)findViewById(R.id.output);
-        twosComplement=(RadioButton)findViewById(R.id.twosComplement);
-        signedNum=(RadioButton)findViewById(R.id.signeNum);
+        /*AdMob Code*/
+        //Banner Ads
+
+        MobileAds.initialize(this,
+                "ca-app-pub-8271447368800027~5220336665");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+        input = (EditText) findViewById(R.id.input);
+        output = (TextView) findViewById(R.id.output);
+        twosComplement = (RadioButton) findViewById(R.id.twosComplement);
+        signedNum = (RadioButton) findViewById(R.id.signeNum);
 
         makeSelection = getResources().getString(R.string.makeSelection);
         mustBeBinary = getResources().getString(R.string.mustBeBinary);
         invalidNumber = getResources().getString(R.string.notvalid);
+        inputTooLarge=getResources().getString(R.string.inputTooLarge);
 
 
     }
+//==========================================================================================End of OnCreate
 
-    //Perform conversion
-    public void toBinary (View v){
+    /*This function determines whether the user want's two's complement or a regular signed conversion.
+    It will return 0 if two's complement is checked, 1 for
+    signed num and zero if neither. (May be amended latter to make use of a
+    settings Menu */
+    public Integer conversionType(){
+        if(twosComplement.isChecked()){return 0;}
+        else if(signedNum.isChecked()){return 1;}
+        else return 2;
+    }
+    //============================================================================================End of Conversion Type
+    /*Takes the user input and populates the output TextBox*/
+    public void fromDecimal(View v){
 
-        if(input.getText().toString().isEmpty()) {
-
+        if(conversionType().equals(2)){
+            Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
             return;
         }
-        else{
 
-            if(signedNum.isChecked()){
+        String dec=input.getText().toString();
+        FromDecimal fromDecimal=new FromDecimal();
 
-                ToBinary bin=new ToBinary();
-                String binString = bin.convert(Double.parseDouble(input.getText().toString()));
-                binString=bin.convert(binString);
-                MainActivity.output.setText(binString);
-            }
+        String result=fromDecimal.convert(dec, conversionType());
 
-            else if(twosComplement.isChecked()){
-
-                //Limited input due to app crashing
-                if(Double.parseDouble(input.getText().toString())>99999999.999||
-                        Double.parseDouble(input.getText().toString())<-99999999.999){
-
-                    Toast.makeText(this,"-100,000,000< N < 100,000,000",Toast.LENGTH_SHORT).show();
-                 }
-
-
-                else  {
-
-                    ToBinary bin = new ToBinary();
-                    String bs = bin.convert(Double.parseDouble(input.getText().toString()));
-                    String ns = bin.toTwosComplement(bs);
-                    MainActivity.output.setText(ns);
-                }
-            }
-
-            else{
-
-                Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();            }
-
-        }
+        output.setText(result);
 
     }
-    //====================================================================end of toBinary
+    //===============================================================================================End of convert from Decimal
 
-    public void toDecimal (View v){
+    public void fromBinary(View v){
 
-        if(!input.getText().toString().isEmpty()){
-
-            if(!input.getText().toString().matches("[0.1-]+")){
-
-                Toast.makeText(this,mustBeBinary,Toast.LENGTH_SHORT).show();
-
-            }
-
-            else{
-
-                if(signedNum.isChecked()){
-                  ToDecimal dec=new ToDecimal();
-                  Double decimalString= dec.ConvertToDecimal(input.getText().toString());
-                  String dectoString=decimalString.toString();
-                  MainActivity.output.setText(dectoString);
-                }
-
-                else if(twosComplement.isChecked()){
-
-                    if(input.getText().toString().contains("-")){
-                        Toast.makeText(this,invalidNumber,Toast.LENGTH_SHORT).show();
-                    }
-
-                    else{
-
-                         ToDecimal dec = new ToDecimal();
-                         String ns = dec.twosComplementToDec(input.getText().toString());
-                         Double decimalDouble= dec.ConvertToDecimal(ns);
-                         String ds=Double.toString(decimalDouble);
-                         MainActivity.output.setText(ds);
-                    }
-                }
-
-                else{
-                    Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
-                }
-            }
+        if(conversionType().equals(2)){
+            Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
+            return;
         }
-    }
-    //====================================================================end of toDecimal
 
+        String bin=input.getText().toString();
+        FromBinary fromBinary= new FromBinary();
+
+        String result=fromBinary.convert(bin, conversionType());
+        output.setText(result);
+    }
+    //===============================================================================================End of convert from Binary
+
+
+    public void fromHex(View v){
+
+        if(conversionType().equals(2)){
+            Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String hex=input.getText().toString();
+        FromHex fromHex= new FromHex();
+
+
+        String result=fromHex.convert(hex, conversionType());
+        output.setText(result);
+
+    }
+
+    //===============================================================================================End of convert from Hex
 }
-
-
