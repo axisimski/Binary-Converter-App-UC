@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton twosComplement;
     private RadioButton signedNum;
     private Button fromHex_btn, fromDec_btn, fromBin_btn;
+    private CheckInput check=new CheckInput();
     static String makeSelection, mustBeBinary, invalidNumber, inputTooLarge;
 
 
@@ -98,11 +99,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String dec=input.getText().toString();
-        FromDecimal fromDecimal=new FromDecimal();
+        String ch=check.validInput(dec, 2, this);
 
-        String result=fromDecimal.convert(dec, conversionType());
+        if(!ch.equals("OK")){
+            output.setText(ch);
+        }
 
-        output.setText(result);
+        else {
+            DecToBinHexClass fromDecimal = new DecToBinHexClass();
+
+            String result = fromDecimal.convert(dec, conversionType());
+
+            output.setText(result);
+        }
 
     }
     //===============================================================================================End of convert from Decimal

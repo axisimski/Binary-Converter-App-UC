@@ -8,24 +8,25 @@ public class CheckInput {
 
         //Decimal Input
         if(type==2){
-
             if(!isNumeric(input)){
                 return context.getResources().getString(R.string.notvalid);
             }
-
             if(input.length()>10){
                 return context.getResources().getString(R.string.inputTooLarge);
             }
-
         }
+
+      //  if(type==1){
+
+      //  }
 
 
 
         return "OK";
     }
 
-
-    public boolean isNumeric(String str){
+//==================================================================================================
+    private boolean isNumeric(String str){
         try
         {
             double d = Double.parseDouble(str);

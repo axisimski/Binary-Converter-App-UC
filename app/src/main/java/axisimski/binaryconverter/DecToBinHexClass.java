@@ -1,34 +1,7 @@
 package axisimski.binaryconverter;
-public class FromDecimal {
-
-    String InvalidInput = MainActivity.invalidNumber;
-    String InputTooLarge=MainActivity.inputTooLarge;
-
-
-    public boolean isNumeric(String str){
-        try
-        {
-            double d = Double.parseDouble(str);
-        }
-        catch(NumberFormatException nfe)
-        {
-            return false;
-        }
-        return true;
-    }
-
+public class DecToBinHexClass {
 
     public String convert(String dec, Integer type){
-
-        //Check if input is numeric else set output to Invalid
-
-      /*  if(isNumeric(dec)==false){
-            return InvalidInput;
-        }
-
-        if(dec.length()>10){
-            return InputTooLarge;
-        }*/
 
         String bin="", hex="";
         Dec2Bin dec2Bin=new Dec2Bin();
@@ -66,8 +39,7 @@ public class FromDecimal {
             bin=bin.substring(1);
         }
 
-        String ret="Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
-        return ret;
+        return "Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
     }
 
 
