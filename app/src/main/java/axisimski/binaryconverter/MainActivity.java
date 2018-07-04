@@ -13,8 +13,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     private EditText input;
@@ -47,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         invalidNumber = getResources().getString(R.string.notvalid);
         inputTooLarge=getResources().getString(R.string.inputTooLarge);
 
+        //user actions
         userInput();
 
     }
@@ -107,9 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         else {
             DecToBinHexClass fromDecimal = new DecToBinHexClass();
-
             String result = fromDecimal.convert(dec, conversionType());
-
             output.setText(result);
         }
 
@@ -122,12 +119,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
             return;
         }
-
         String bin=input.getText().toString();
-        FromBinary fromBinary= new FromBinary();
+        String ch=check.validInput(bin, 1, this);
 
-        String result=fromBinary.convert(bin, conversionType());
-        output.setText(result);
+        if(!ch.equals("OK")){
+            output.setText(ch);
+        }
+
+        else {
+            BinToHexDecClass fromBinary = new BinToHexDecClass();
+            String result = fromBinary.convert(bin, conversionType(), invalidNumber);
+            output.setText(result);
+        }
     }
     //===============================================================================================End of convert from Binary
 
