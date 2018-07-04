@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -16,10 +17,11 @@ import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
 
-    static EditText input;
-    static TextView output;
-    static RadioButton twosComplement;
-    static RadioButton signedNum;
+    private EditText input;
+    private TextView output;
+    private RadioButton twosComplement;
+    private RadioButton signedNum;
+    private Button fromHex_btn, fromDec_btn, fromBin_btn;
     static String makeSelection, mustBeBinary, invalidNumber, inputTooLarge;
 
 
@@ -28,22 +30,53 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        //Initialize variables
+        input =findViewById(R.id.input);
+        output =  findViewById(R.id.output);
+        twosComplement =  findViewById(R.id.twosComplement);
+        signedNum = findViewById(R.id.signeNum);
 
+        fromHex_btn=findViewById(R.id.hexToBinDec_btn);
+        fromBin_btn=findViewById(R.id.binToDecHex_btn);
+        fromDec_btn=findViewById(R.id.decToBinHex_btn);
 
-        input = (EditText) findViewById(R.id.input);
-        output = (TextView) findViewById(R.id.output);
-        twosComplement = (RadioButton) findViewById(R.id.twosComplement);
-        signedNum = (RadioButton) findViewById(R.id.signeNum);
-
+        //get data from String resources for errors/messages
         makeSelection = getResources().getString(R.string.makeSelection);
         mustBeBinary = getResources().getString(R.string.mustBeBinary);
         invalidNumber = getResources().getString(R.string.notvalid);
         inputTooLarge=getResources().getString(R.string.inputTooLarge);
 
+        userInput();
 
     }
 //==========================================================================================End of OnCreate
+
+    //User input; Button onClickListeners
+    private void userInput(){
+
+        fromDec_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fromDecimal();
+            }
+        });
+
+        fromBin_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fromBinary();
+            }
+        });
+
+        fromHex_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fromHex();
+            }
+        });
+    }
+    //=========================================================================================end userInput
+
 
     /*This function determines whether the user want's two's complement or a regular signed conversion.
     It will return 0 if two's complement is checked, 1 for
@@ -56,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //============================================================================================End of Conversion Type
     /*Takes the user input and populates the output TextBox*/
-    public void fromDecimal(View v){
+    public void fromDecimal(){
 
         if(conversionType().equals(2)){
             Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
@@ -73,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //===============================================================================================End of convert from Decimal
 
-    public void fromBinary(View v){
+    public void fromBinary(){
 
         if(conversionType().equals(2)){
             Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
@@ -89,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     //===============================================================================================End of convert from Binary
 
 
-    public void fromHex(View v){
+    public void fromHex(){
 
         if(conversionType().equals(2)){
             Toast.makeText(this,makeSelection,Toast.LENGTH_SHORT).show();
