@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
     }
     //===============================================================================================End of convert from Binary
 
-
     public void fromHex(){
 
         if(conversionType().equals(2)){
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else {
-            FromHex fromHex = new FromHex();
+            HexToBinDecClass fromHex = new HexToBinDecClass();
             String result = fromHex.convert(hex, conversionType(), invalidNumber);
             output.setText(result);
         }

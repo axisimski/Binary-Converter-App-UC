@@ -47,7 +47,7 @@ public class BinToHexDecClass {
             hex= dec2Hex.convert(dec);
         }
 
-        return "Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
+        return "Dec: "+dec+"\n\nBin: "+bin+"\n\nHex: "+hex;
     }
 
 

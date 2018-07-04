@@ -22,7 +22,6 @@ public class DecToBinHexClass {
                 hex=dec2Hex.convert(dec);
             }
 
-
         }
 
         else if(type.equals(1)){
@@ -39,7 +38,7 @@ public class DecToBinHexClass {
             bin=bin.substring(1);
         }
 
-        return "Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
+        return "Dec: "+dec+"\n\nBin: "+bin+"\n\nHex: "+hex;
     }
 
 

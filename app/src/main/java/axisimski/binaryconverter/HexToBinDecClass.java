@@ -1,5 +1,5 @@
 package axisimski.binaryconverter;
-public class FromHex {
+public class HexToBinDecClass {
 
     public String convert(String hex, Integer type, String invalidString){
 
@@ -26,7 +26,7 @@ public class FromHex {
              dec=tempDec.toString();
          }
 
-        return "Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
+        return "Dec: "+dec+"\n\nBin: "+bin+"\n\nHex: "+hex;
     }
 
 
