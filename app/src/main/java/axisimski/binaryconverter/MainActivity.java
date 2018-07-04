@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         else return 2;
     }
     //============================================================================================End of Conversion Type
+
     /*Takes the user input and populates the output TextBox*/
     public void fromDecimal(){
 

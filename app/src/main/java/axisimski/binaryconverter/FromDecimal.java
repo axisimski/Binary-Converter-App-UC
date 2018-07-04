@@ -22,13 +22,13 @@ public class FromDecimal {
 
         //Check if input is numeric else set output to Invalid
 
-        if(isNumeric(dec)==false){
+      /*  if(isNumeric(dec)==false){
             return InvalidInput;
         }
 
         if(dec.length()>10){
             return InputTooLarge;
-        }
+        }*/
 
         String bin="", hex="";
         Dec2Bin dec2Bin=new Dec2Bin();
