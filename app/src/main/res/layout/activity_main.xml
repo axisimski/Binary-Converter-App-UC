@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bcg"
+    android:background="@drawable/bcl"
     android:orientation="vertical"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp">
@@ -13,8 +13,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="277dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
@@ -25,26 +25,26 @@
 
         <TextView
             android:id="@+id/output"
-            android:layout_width="match_parent"
-            android:layout_height="183dp"
+            android:layout_width="330dp"
+            android:layout_height="219dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/custom"
+            android:layout_marginStart="26dp"
+            android:fontFamily="@font/michroma"
             android:text=""
             android:textAlignment="viewStart"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/input"
-            android:layout_width="match_parent"
+            android:layout_width="330dp"
             android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="206dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/custom"
             android:ems="10"
             android:hint="@string/Hint"
