@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     static TextView output;
     static RadioButton twosComplement;
     static RadioButton signedNum;
-    private AdView mAdView;
     static String makeSelection, mustBeBinary, invalidNumber, inputTooLarge;
 
 
@@ -30,17 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
-
-        /*AdMob Code*/
-        //Banner Ads
-
-        MobileAds.initialize(this,
-                "ca-app-pub-8271447368800027~5220336665");
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
 
         input = (EditText) findViewById(R.id.input);

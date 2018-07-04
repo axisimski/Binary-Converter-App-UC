@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,12 +13,10 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="38dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +27,14 @@
             android:id="@+id/output"
             android:layout_width="match_parent"
             android:layout_height="183dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:background="@drawable/custom"
             android:text=""
-            android:textAlignment="center"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,8 +42,9 @@
             android:id="@+id/input"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="13dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="206dp"
             android:background="@drawable/custom"
             android:ems="10"
             android:hint="@string/Hint"
@@ -60,8 +63,9 @@
         android:id="@+id/radioGroup3"
         android:layout_width="wrap_content"
         android:layout_height="63dp"
-        android:layout_marginBottom="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/adView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="76dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
@@ -71,7 +75,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:buttonTint="@color/white"
             android:text="@string/twosComp"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
@@ -82,7 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:buttonTint="@color/white"
             android:text="@string/signedNum"
             android:textAllCaps="true"
             android:textColor="@android:color/background_light"
@@ -91,11 +93,14 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="38dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="210dp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
@@ -107,7 +112,6 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="14dp"
             android:background="@drawable/custbut1"
-            android:elevation="0dp"
             android:onClick="fromDecimal"
             android:text="@string/toBinary"
             android:textColor="@android:color/white"
@@ -145,18 +149,5 @@
     </RelativeLayout>
 
 
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8271447368800027/5164496345"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/radioGroup3"></com.google.android.gms.ads.AdView>
-</android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

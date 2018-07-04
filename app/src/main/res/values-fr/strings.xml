@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Convertisseur de complément à deux Pro</string>
+    <string name="notvalid">entrée invalide</string>
+    <string name="mustBeBinary">Doit être un nombre binaire!</string>
+    <string name="makeSelection">Choisissez le type de conversion</string>
+    <string name="twosComp">Complément à deux</string>
+    <string name="signedNum">Numéro signé</string>
+    <string name="inputTooLarge">L\'entrée est trop grande</string>
+    <string name="Hint">Entrez le numéro ici</string>
+</resources>
