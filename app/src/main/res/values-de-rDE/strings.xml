@@ -7,5 +7,4 @@
     <string name="signedNum">Betrags-Vorzeichen</string>
     <string name="twosComp">Zweierkomplement</string>
     <string name="inputTooLarge">"Eingabe zu groß "</string>
-    <string name="Hint">Geben Sie hier die Nummer ein</string>
 </resources>

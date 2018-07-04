@@ -7,5 +7,4 @@
     <string name="notvalid">Неправильный номер</string>
     <string name="makeSelection">Выберите тип конверсии</string>
     <string name="inputTooLarge">Ввод слишком большой</string>
-    <string name="Hint">Введите ввод здесь</string>
 </resources>

@@ -7,5 +7,4 @@
     <string name="twosComp">Complément à deux</string>
     <string name="signedNum">Numéro signé</string>
     <string name="inputTooLarge">L\'entrée est trop grande</string>
-    <string name="Hint">Entrez le numéro ici</string>
 </resources>
