@@ -1,69 +1,88 @@
 package axisimski.binaryconverter;
-
-import java.math.BigInteger;
-
 public class FromHex {
 
+    String InvalidInput = MainActivity.invalidNumber;
+    String InputTooLarge=MainActivity.inputTooLarge;
 
-    public String convert(String hex){
+    //======================================================================================================
 
-        Boolean negative=false;
-        if(hex.charAt(0)=='-'){
-            negative=true;
-           hex= hex.substring(1);
+    public boolean isHex(String str){
+        return str.matches("-?[0-9a-fA-F.]+");
+    }
+
+    //======================================================================================================
+    public boolean tooLarge(String str){
+
+        String whole="", part="";
+
+        if(str.contains(".")){
+            String[] parts = str.split("[.]");
+
+
+            if(parts[0].length()>7){
+                    return true;
+            }
+            if(parts[1].length()>7){
+                return true;
+            }
         }
 
-        String whole=splitString(hex, 0);
-        String fraction=splitString(hex, 1);
-
-
-        Integer p1=Integer.parseInt(whole,16);
-        String ws=Integer.toBinaryString(p1);
-
-        Integer p2=Integer.parseInt(fraction,16);
-        String fs=Integer.toBinaryString(p2);
-
-        fs=addZeros(fs);
-
-        if(negative==true){
-            ws="-"+ws;
+        else if(!str.contains(".")){
+            if(str.length()>7){
+                return true;
+            }
         }
 
-        return ws+"."+fs;
+        return false;
+    }
+//=======================================================================================================
 
-    }//end Convert
+    public String convert(String hex, Integer type){
 
-    //---------------------------------------------------------------------
-
-    public String splitString (String bin, int index){
-
-        String[] parts = bin.split("[.]");
-
-        if(index>=parts.length){
-            return "0";
+        if(isHex(hex)==false){
+           return InvalidInput;
+        }
+        if(tooLarge(hex)==true){
+            return InputTooLarge;
+        }
+        if(type.equals(0)&&hex.contains("-")){
+            return InvalidInput;
         }
 
-        if(parts[index].isEmpty()){
-            return "0";
-        }
-        bin = parts[index];
-
-        return bin;
-    } //end SplitString
-
-    //---------------------------------------------------------------------
-    public String addZeros(String fs){
-
-        while(fs.length()%4!=0){
-            fs="0"+fs;
-        }
-
-        return fs;
-
-    } //end AddZeros
 
 
+        Hex2Bin hex2Bin= new Hex2Bin();
+        Bin2Dec bin2Dec= new Bin2Dec();
+        Bin2TwosComp bin2TwosComp =new Bin2TwosComp();
 
+        String dec="", bin="";
+
+
+        if(type.equals(0)){
+
+             bin=hex2Bin.convert(hex);
+
+             String bintemp=bin2Dec.twosComplementToDec(bin);
+             Double tempDec=bin2Dec.ConvertToDecimal(bintemp);
+             dec=tempDec.toString();
+            //dec=bintemp;
+
+
+         }
+
+
+         if(type.equals(1)){
+             bin=hex2Bin.convert(hex);
+             Double tempDec=bin2Dec.ConvertToDecimal(bin);
+             dec=tempDec.toString();
+
+         }
+
+
+
+        String ret="Dec: "+dec+"\nBin: "+bin+"\nHex: "+hex;
+        return ret;
+    }
 
 
 }

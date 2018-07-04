@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Дополнительный код калькулятор</string>
-    <string name="twosComp">"Дополнительный код "</string>
-    <string name="toBinary">DEC->BIN/HEX</string>
-    <string name="toDecimal">"BIN->DEC/HEX  "</string>
-    <string name="signedNum">"Знаковых чисел "</string>
-    <string name="mustBeBinary">Должно быть двоичное число</string>
-    <string name="makeSelection">Сделать выбор</string>
-    <string name="notvalid">"Неправильный номер "</string>
+    <string name="app_name">Дополнительный код калькулятор Pro</string>
+    <string name="signedNum">Знаковых чисел</string>
+    <string name="twosComp">Дополнительный код</string>
+    <string name="mustBeBinary">Должно быть двоичное число!</string>
+    <string name="notvalid">Неправильный номер</string>
+    <string name="makeSelection">Выберите тип конверсии</string>
+    <string name="inputTooLarge">Ввод слишком большой</string>
+    <string name="Hint">Введите ввод здесь</string>
 </resources>

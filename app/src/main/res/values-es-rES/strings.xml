@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculadora Binaria Pro</string>
+    <string name="twosComp">Complemento a dos</string>
+    <string name="notvalid">Número invalido</string>
+    <string name="mustBeBinary">Debe ser un número binario</string>
+    <string name="inputTooLarge">La entrada es demasiado grande</string>
+    <string name="signedNum">Número con signo</string>
+    <string name="Hint">Ingrese el número aquí\"</string>
+    <string name="makeSelection">Elija el tipo de conversión!</string>
+</resources>

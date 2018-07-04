@@ -1,13 +1,5 @@
 package axisimski.binaryconverter;
-
-import static axisimski.binaryconverter.MainActivity.input;
-
-/**
- * Created by Alex on 2/18/2018.
- */
-
-public class ToDecimal {
-
+public class Bin2Dec {
 
 
     public double ConvertToDecimal(String a){
@@ -104,25 +96,41 @@ public class ToDecimal {
 
     public String twosComplementToDec(String bin){
 
-
         String binFraction=bin;
 
-
         if(bin.charAt(0)=='0'){
-
             return bin;
         }
 
         else {
-
             bin=splitString(bin, 0);
 
             if(binFraction.contains(".")){
-               binFraction=splitString(binFraction, 1);
-               binFraction=subOne(binFraction);
-               binFraction=flip(binFraction);
-               bin=flip(bin);
-               return "-"+bin+"."+binFraction;
+                binFraction=splitString(binFraction, 1);
+
+                if(!binFraction.contains("1")){
+                    bin=subOne(bin);
+                    bin=flip(bin);
+                    return "-"+bin;
+                    }
+
+                else{
+                int numLeadingZeros = binFraction.length() - binFraction.replaceAll("^0+", "").length();
+
+                String tempBinFraction=binFraction;
+                binFraction=subOne(binFraction);
+
+                for(int i=0;i<numLeadingZeros;i++){
+                    binFraction="0"+binFraction;
+                }
+                if(binFraction.length()<tempBinFraction.length()){
+                    binFraction="0"+binFraction;
+                }
+                binFraction=flip(binFraction);
+
+                bin=flip(bin);
+                return "-"+bin+"."+binFraction;
+                }
             }
 
 
@@ -136,16 +144,5 @@ public class ToDecimal {
 
         return bin;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

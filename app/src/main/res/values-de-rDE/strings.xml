@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zweierkomplement Umrechner Pro</string>
+    <string name="notvalid">Ungültige Nummer</string>
+    <string name="mustBeBinary">Geben Sie eine Binärzahl ein!</string>
+    <string name="makeSelection">Wählen Sie den Conversion-Typ aus!</string>
+    <string name="signedNum">Betrags-Vorzeichen</string>
+    <string name="twosComp">Zweierkomplement</string>
+    <string name="inputTooLarge">"Eingabe zu groß "</string>
+    <string name="Hint">Geben Sie hier die Nummer ein</string>
+</resources>

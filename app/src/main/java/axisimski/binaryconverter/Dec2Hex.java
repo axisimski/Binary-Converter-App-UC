@@ -1,9 +1,8 @@
 package axisimski.binaryconverter;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class ToHex {
+public class Dec2Hex {
 
     public String convert(String decInpString){
 
@@ -41,5 +40,6 @@ public class ToHex {
 
         return hexOut.toString();
     }
+
 
 }
