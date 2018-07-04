@@ -23,13 +23,29 @@ public class CheckInput {
             if(!isBinary(input)){
                 return context.getResources().getString(R.string.notvalid);
             }
-            else if(!isValidNumber(input)){
+            else if(invalidNumber(input)){
 
                 return context.getResources().getString(R.string.notvalid);
             }
         }
 
+        //Check hex input
+        if(type==0){
 
+            if(!isHex(input)){
+                return context.getResources().getString(R.string.notvalid);
+            }
+
+            if(invalidNumber(input)){
+               return context.getResources().getString(R.string.notvalid);
+
+            }
+
+            else if(tooLarge(input)){
+               return context.getResources().getString(R.string.inputTooLarge);
+            }
+
+        }
 
         return "OK";
     }
@@ -48,7 +64,6 @@ public class CheckInput {
         }
         return true;
     }
-//==================================================================================================
 
     //Checks inf input type 1 (binary) is in fact binary
     private boolean isBinary(String str){
@@ -56,7 +71,7 @@ public class CheckInput {
     }
 
     //Checks if something is a valid number (Does not contain more than one '.') ...used for bin check
-    private boolean isValidNumber(String str){
+    private boolean invalidNumber(String str){
 
         int DotCount=0, MinusCount=0;
 
@@ -71,17 +86,40 @@ public class CheckInput {
             }
 
             if(DotCount>1){
-                return false;
+                return true;
             }
 
             if(MinusCount>1){
-                return false;
+                return true;
             }
 
         }
 
-        return  true;
+        return false;
     }
+
+    //Check if input is hex
+    private boolean isHex(String str){
+        return str.matches("-?[0-9a-fA-F.]+");
+    }
+
+    //Check if the input is too large (HEX ONLY). Large input can crash the app
+    private boolean tooLarge(String str){
+
+        String whole="", part="";
+
+        if(str.contains(".")) {
+            String[] parts = str.split("[.]");
+            return parts[0].length() > 7 || parts[1].length() > 7;
+        }
+
+        else if(!str.contains(".")){
+            return str.length() > 7;
+        }
+
+        return false;
+    }
+
 
 
 }//end class()

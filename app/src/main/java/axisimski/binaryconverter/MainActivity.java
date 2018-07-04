@@ -143,12 +143,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String hex=input.getText().toString();
-        FromHex fromHex= new FromHex();
+        String ch=check.validInput(hex, 0, this);
 
+        if(!ch.equals("OK")){
+            output.setText(ch);
+        }
 
-        String result=fromHex.convert(hex, conversionType());
-        output.setText(result);
-
+        else {
+            FromHex fromHex = new FromHex();
+            String result = fromHex.convert(hex, conversionType(), invalidNumber);
+            output.setText(result);
+        }
     }
 
     //===============================================================================================End of convert from Hex
