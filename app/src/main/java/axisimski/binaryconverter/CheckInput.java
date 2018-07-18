@@ -20,6 +20,9 @@ public class CheckInput {
 
         //Binary input
         if(type==1){
+            if(!isNumeric(input)){
+                return context.getResources().getString(R.string.notvalid);
+            }
             if(!isBinary(input)){
                 return context.getResources().getString(R.string.notvalid);
             }

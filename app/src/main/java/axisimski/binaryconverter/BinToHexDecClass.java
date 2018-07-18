@@ -6,7 +6,7 @@ public class BinToHexDecClass {
         if(str.charAt(0)=='.'){
             str="0"+str;
         }
-        else if(str.charAt(0)=='-'){
+        else if(str.charAt(0)=='-'&&str.length()>0){
             if(str.charAt(1)=='.'){
                 str=str.substring(2);
                 str="-0."+str;
