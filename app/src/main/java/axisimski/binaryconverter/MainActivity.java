@@ -22,12 +22,23 @@ public class MainActivity extends AppCompatActivity {
     private Button fromHex_btn, fromDec_btn, fromBin_btn;
     private CheckInput check=new CheckInput();
     static String makeSelection, mustBeBinary, invalidNumber, inputTooLarge;
+    private AdView mAdView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*AdMob Code*/
+        //Banner Ads
+
+        MobileAds.initialize(this,
+                "ca-app-pub-8271447368800027~5220336665");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //Initialize variables
         input =findViewById(R.id.input);
